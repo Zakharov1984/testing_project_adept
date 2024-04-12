@@ -1,4 +1,7 @@
-interface Employee {
+import { createReducer } from "@reduxjs/toolkit";
+import { employeesFetching, employeesFetched, employeesFetchingError } from "../actions";
+
+interface IEmployee {
   id: string;
   name: string;
   surname: string;
@@ -6,30 +9,35 @@ interface Employee {
   companyName: string;
 }
 
-
-interface Employees {
-  [key: string]: Employee[];
+interface IEmployees {
+  [key: string]: IEmployee[];
 }
 
-interface EmployeesInitialState {
-  employees: Employees;
-  isFirstActivatedCompany: boolean
+interface IEmployeesInitialState {
+  employees: IEmployees;
+  isFirstActivatedCompany: boolean,
+  employeesLoadingStatus: string
 }
 
-const initialState: EmployeesInitialState = {
+const initialState: IEmployeesInitialState = {
   employees: {},
   isFirstActivatedCompany: false,
+  employeesLoadingStatus: 'idle',
 }
 
-const employees = (state = initialState, action: any) => {
-  switch (action.type) {
-    case 'EMPLOYEE_FETCHED':
-      return {
-        ...state,
-        employees: action.payload,
-    }
-    default: return state;
-  }
-}
+const employees = createReducer(initialState, builder => {
+  builder
+    .addCase(employeesFetching, state => {
+      state.employeesLoadingStatus = 'loading';
+    })
+    .addCase(employeesFetched, (state, action: any) => {
+      state.employees = action.payload;
+      state.employeesLoadingStatus = 'idle';
+    })
+    .addCase(employeesFetchingError, state => {
+      state.employeesLoadingStatus = 'error';
+    })
+    .addDefaultCase(() => {});
+})
 
 export default employees;
