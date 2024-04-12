@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import companies from "../reducers/companies";
-import employees from "../reducers/employees";
+import companies from "../components/CompaniesList/companiesSlice";
+import employees from "../components/EmployeesList/employeesSlice";
 
 const store = configureStore({
   reducer: {

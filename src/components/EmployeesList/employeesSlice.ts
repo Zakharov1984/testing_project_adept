@@ -1,5 +1,4 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { employeesFetching, employeesFetched, employeesFetchingError } from "../actions";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface IEmployee {
   id: string;
@@ -25,19 +24,28 @@ const initialState: IEmployeesInitialState = {
   employeesLoadingStatus: 'idle',
 }
 
-const employees = createReducer(initialState, builder => {
-  builder
-    .addCase(employeesFetching, state => {
-      state.employeesLoadingStatus = 'loading';
-    })
-    .addCase(employeesFetched, (state, action: any) => {
+const employeesSlice = createSlice({
+  name: 'employees',
+  initialState,
+  reducers: {
+    employeesFetching: state => {state.employeesLoadingStatus = 'loading';},
+    employeesFetched: (state, action: any) => {
       state.employees = action.payload;
       state.employeesLoadingStatus = 'idle';
-    })
-    .addCase(employeesFetchingError, state => {
+    },
+    employeesFetchingError: state => {
       state.employeesLoadingStatus = 'error';
-    })
-    .addDefaultCase(() => {});
-})
+    },
+    
+  }
+});
 
-export default employees;
+const {actions, reducer} =  employeesSlice;
+
+export default reducer;
+
+export const {
+  employeesFetching, 
+  employeesFetched, 
+  employeesFetchingError
+} = actions;
