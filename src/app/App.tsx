@@ -1,6 +1,9 @@
+import { Companies } from "../pages/Companies/Companies"
 
 export default function App(): JSX.Element {
   return (
-    <div className="app">TEST</div>
+    <div className="app">
+      <Companies/>
+    </div>
   )
 }
