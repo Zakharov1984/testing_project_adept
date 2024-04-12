@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import service from "../../API/service";
 
 interface ICompanies {
   id: string;
@@ -17,19 +18,31 @@ const initialState: ICompaniesInitialState = {
   companiesLoadingStatus: 'idle',
 }
 
+export const fetchCompanies = createAsyncThunk(
+  'companies/fetchCompanies',
+  async () => {
+    return await service.getData('http://localhost:3001/companies');
+  }
+);
+
 const companiesSlice = createSlice({
   name: 'companies',
   initialState,
   reducers: {
-    companiesFetching: state => {state.companiesLoadingStatus = 'loading'},
-    companiesFetched: (state, action: any) => {
-      state.companies = action.payload;
-      state.companiesLoadingStatus = 'idle';
-    },
-    companiesFetchingError: state => {
-      state.companiesLoadingStatus = 'error';
-    }
-  }
+    
+  },
+  extraReducers: (builder => {
+    builder
+      .addCase(fetchCompanies.pending, state => {state.companiesLoadingStatus = 'loading'})
+      .addCase(fetchCompanies.fulfilled, (state, action: any) => {
+        state.companies = action.payload;
+        state.companiesLoadingStatus = 'idle';
+      })
+      .addCase(fetchCompanies.rejected, state => {
+        state.companiesLoadingStatus = 'error';
+      })
+      .addDefaultCase(() => {});
+  })
 });
 
 const {actions, reducer} =  companiesSlice;
@@ -37,7 +50,5 @@ const {actions, reducer} =  companiesSlice;
 export default reducer;
 
 export const {
-  companiesFetching, 
-  companiesFetched, 
-  companiesFetchingError
+
 } = actions;

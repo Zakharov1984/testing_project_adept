@@ -1,17 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { employeesFetched } from "./employeesSlice";
+import { fetchEmployees } from "./employeesSlice";
+import type { AppDispatch } from "../../store";
 
 
 export const EmployeesList = () => {
-  const dispatch = useDispatch(); 
+  const dispatch: AppDispatch = useDispatch(); 
 
   useEffect(() => {
-    fetch('http://localhost:3001/employees')
-      .then(response => response.json())
-      .then(data => {
-        dispatch(employeesFetched(data));
-      })
+    dispatch(fetchEmployees());
   }, [])
 
   return (

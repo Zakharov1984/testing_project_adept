@@ -1,10 +1,11 @@
-import { useCallback } from "react";
+type methodRequest = 'GET' | 'POST' | 'DELETE' | 'PUT';
 
-export const useHttp = () => {
-  const request = useCallback(async (url: any, 
-    method = 'GET', 
-    body = null, 
-    headers = {'Content-Type': 'application/json'}) => {
+export default class service {
+  static async getData(
+    url: string, 
+    method: methodRequest = 'GET', 
+    body: null | string = null, 
+    headers = {'Content-Type': 'application/json'}) {
       try {
         const response = await fetch(url, {method, body, headers});
 
@@ -15,10 +16,8 @@ export const useHttp = () => {
         const data = await response.json();
 
         return data;
-    } catch(e) {
+      } catch(e) {
         throw e;
-    }
-  }, [])
-
-  return {request};
+      }
+  }
 }

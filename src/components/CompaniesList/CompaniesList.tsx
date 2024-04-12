@@ -1,17 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { companiesFetched } from "./companiesSlice";
-
+import { fetchCompanies } from "./companiesSlice";
+import type { AppDispatch } from "../../store";
 
 export const CompaniesList = () => {
-  const dispatch = useDispatch(); 
+  const dispatch: AppDispatch = useDispatch(); 
 
   useEffect(() => {
-    fetch('http://localhost:3001/companies')
-      .then(response => response.json())
-      .then(data => {
-        dispatch(companiesFetched(data));
-      })
+    dispatch(fetchCompanies());
   }, [])
 
   return (

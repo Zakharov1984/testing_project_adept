@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import service from "../../API/service";
 
 interface IEmployee {
   id: string;
@@ -24,20 +25,31 @@ const initialState: IEmployeesInitialState = {
   employeesLoadingStatus: 'idle',
 }
 
+export const fetchEmployees = createAsyncThunk(
+  'employees/fetchEmployees',
+  async () => {
+    return await service.getData('http://localhost:3001/employees');
+  }
+);
+
 const employeesSlice = createSlice({
   name: 'employees',
   initialState,
   reducers: {
-    employeesFetching: state => {state.employeesLoadingStatus = 'loading';},
-    employeesFetched: (state, action: any) => {
-      state.employees = action.payload;
-      state.employeesLoadingStatus = 'idle';
-    },
-    employeesFetchingError: state => {
-      state.employeesLoadingStatus = 'error';
-    },
-    
-  }
+
+  },
+  extraReducers: (builder => {
+    builder
+      .addCase(fetchEmployees.pending, state => {state.employeesLoadingStatus = 'loading'})
+      .addCase(fetchEmployees.fulfilled, (state, action: any) => {
+        state.employees = action.payload;
+        state.employeesLoadingStatus = 'idle';
+      })
+      .addCase(fetchEmployees.rejected, state => {
+        state.employeesLoadingStatus = 'error';
+      })
+      .addDefaultCase(() => {});
+  })
 });
 
 const {actions, reducer} =  employeesSlice;
@@ -45,7 +57,5 @@ const {actions, reducer} =  employeesSlice;
 export default reducer;
 
 export const {
-  employeesFetching, 
-  employeesFetched, 
-  employeesFetchingError
+ 
 } = actions;
