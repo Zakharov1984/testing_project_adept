@@ -1,0 +1,464 @@
+{
+  "companies": [
+    {
+      "id": "bc305d54",
+      "name": "Company0",
+      "address": "1234 Несуществующая улица0",
+      "employeeCounter": 10
+    },
+    {
+      "id": "f2a9c2e7",
+      "name": "Company1",
+      "address": "5678 Несуществующая улица1",
+      "employeeCounter": 0
+    },
+    {
+      "id": "5cf9bdcd",
+      "name": "Company2",
+      "address": "91011 Несуществующая улица2",
+      "employeeCounter": 7
+    },
+    {
+      "id": "c15eef46",
+      "name": "Company3",
+      "address": "121314 Несуществующая улица3",
+      "employeeCounter": 3
+    },
+    {
+      "id": "12fb0d08",
+      "name": "Company4",
+      "address": "151617 Несуществующая улица4",
+      "employeeCounter": 4
+    },
+    {
+      "id": "ec12f41c",
+      "name": "Company5",
+      "address": "181920 Несуществующая улица5",
+      "employeeCounter": 2
+    },
+    {
+      "id": "83b4eaa2",
+      "name": "Company6",
+      "address": "212223 Несуществующая улица6",
+      "employeeCounter": 1
+    },
+    {
+      "id": "d8082d0c",
+      "name": "Company7",
+      "address": "242526 Несуществующая улица7",
+      "employeeCounter": 7
+    },
+    {
+      "id": "ec6366d3",
+      "name": "Company8",
+      "address": "272829 Несуществующая улица8",
+      "employeeCounter": 5
+    },
+    {
+      "id": "d67f6637",
+      "name": "Company9",
+      "address": "303132 Несуществующая улица9",
+      "employeeCounter": 15
+    }
+  ],
+  "employees": {
+    "Company0": [
+      {
+        "id": "a2b4c6d8",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      },
+      {
+        "id": "e3f5g7h9",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      },
+      {
+        "id": "i0j2k4l6",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      },
+      {
+        "id": "m1n3o5p7",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      },
+      {
+        "id": "q8r0s2t4",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      },
+      {
+        "id": "u6v8w0x2",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      },
+      {
+        "id": "y4z6A8B0",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      },
+      {
+        "id": "C1D3E5F7",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      },
+      {
+        "id": "G9H1I3J5",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      },
+      {
+        "id": "K7L9M1N3",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company0"
+      }
+    ],
+    "Company1": [],
+    "Company2": [
+      {
+        "id": "O4P6Q8R0",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company2"
+      },
+      {
+        "id": "S2T4U6V8",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company2"
+      },
+      {
+        "id": "W0X2Y4Z6",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company2"
+      },
+      {
+        "id": "A8B0C1D3",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company2"
+      },
+      {
+        "id": "E5F7G9H1",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company2"
+      },
+      {
+        "id": "I3J5K7L9",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company2"
+      },
+      {
+        "id": "M1N3O4P6",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company2"
+      }
+    ],
+    "Company3": [
+      {
+        "id": "Q8R0S2T4",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company3"
+      },
+      {
+        "id": "U6V8W0X2",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company3"
+      },
+      {
+        "id": "Y4Z6A8B0",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company3"
+      }
+    ],
+    "Company4": [
+      {
+        "id": "C1D3E5F7",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company4"
+      },
+      {
+        "id": "G9H1I3J5",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company4"
+      },
+      {
+        "id": "K7L9M1N3",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company4"
+      },
+      {
+        "id": "O4P6Q8R0",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company4"
+      }
+    ],
+    "Company5": [
+      {
+        "id": "S2T4U6V8",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company5"
+      },
+      {
+        "id": "W0X2Y4Z6",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company5"
+      }
+    ],
+    "Company6": [
+      {
+        "id": "A8B0C1D3",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company6"
+      }
+    ],
+    "Company7": [
+      {
+        "id": "E5F7G9H1",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company7"
+      },
+      {
+        "id": "I3J5K7L9",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company7"
+      },
+      {
+        "id": "M1N3O4P6",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company7"
+      },
+      {
+        "id": "Q8R0S2T4",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company7"
+      },
+      {
+        "id": "U6V8W0X2",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company7"
+      },
+      {
+        "id": "Y4Z6A8B0",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company7"
+      },
+      {
+        "id": "C1D3E5F7",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company7"
+      }
+      
+    ],
+    "Company8": [
+      {
+        "id": "G9H1I3J5",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company8"
+      },
+      {
+        "id": "K7L9M1N3",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company8"
+      },
+      {
+        "id": "O4P6Q8R0",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company8"
+      },
+      {
+        "id": "S2T4U6V8",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company8"
+      },
+      {
+        "id": "W0X2Y4Z6",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company8"
+      }
+    ],
+    "Company9": [
+      {
+        "id": "A8B0C1D3",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "E5F7G9H1",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "I3J5K7L9",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "M1N3O4P6",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "Q8R0S2T4",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "U6V8W0X2",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "Y4Z6A8B0",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "C1D3E5F7",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "G9H1I3J5",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "K7L9M1N3",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "O4P6Q8R0",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "S2T4U6V8",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "B0C1D3E5",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "F7G9H1I3",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      },
+      {
+        "id": "J5K7L9M1",
+        "name": "someName1",
+        "surname": "someSurname1",
+        "post": "somePost",
+        "companyName": "Company9"
+      }
+    ]
+  }
+}
