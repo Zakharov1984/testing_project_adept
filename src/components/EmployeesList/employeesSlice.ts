@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import service from "../../API/service";
 
 interface IEmployee {
@@ -15,8 +15,8 @@ interface IEmployees {
 
 interface IEmployeesInitialState {
   employees: IEmployees;
-  isFirstActivatedCompany: boolean,
-  employeesLoadingStatus: string
+  isFirstActivatedCompany: boolean;
+  employeesLoadingStatus: 'idle' | 'loading' | 'error';
 }
 
 const initialState: IEmployeesInitialState = {
@@ -41,7 +41,7 @@ const employeesSlice = createSlice({
   extraReducers: (builder => {
     builder
       .addCase(fetchEmployees.pending, state => {state.employeesLoadingStatus = 'loading'})
-      .addCase(fetchEmployees.fulfilled, (state, action: any) => {
+      .addCase(fetchEmployees.fulfilled, (state, action: PayloadAction<IEmployees>) => {
         state.employees = action.payload;
         state.employeesLoadingStatus = 'idle';
       })

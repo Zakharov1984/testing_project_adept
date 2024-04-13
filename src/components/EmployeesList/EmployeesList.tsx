@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../hooks/hook";
 import { fetchEmployees } from "./employeesSlice";
-import type { AppDispatch } from "../../store";
 
 
 export const EmployeesList = () => {
-  const dispatch: AppDispatch = useDispatch(); 
+  const dispatch = useAppDispatch(); 
 
   useEffect(() => {
     dispatch(fetchEmployees());

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import service from "../../API/service";
 
 interface ICompanies {
@@ -10,7 +10,7 @@ interface ICompanies {
 
 interface ICompaniesInitialState {
   companies: ICompanies[];
-  companiesLoadingStatus: string;
+  companiesLoadingStatus: 'idle' | 'loading' | 'error';
 }
 
 const initialState: ICompaniesInitialState = {
@@ -34,7 +34,7 @@ const companiesSlice = createSlice({
   extraReducers: (builder => {
     builder
       .addCase(fetchCompanies.pending, state => {state.companiesLoadingStatus = 'loading'})
-      .addCase(fetchCompanies.fulfilled, (state, action: any) => {
+      .addCase(fetchCompanies.fulfilled, (state, action: PayloadAction<ICompanies[]>) => {
         state.companies = action.payload;
         state.companiesLoadingStatus = 'idle';
       })
