@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { fetchCompanies } from './companiesSlice';
 
 import st from './CompaniesList.module.scss';
+import { TableItem } from '../TableItem/TableItem';
 
 export const CompaniesList = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +17,14 @@ export const CompaniesList = () => {
 
   return (
     <table className={st.companiesTable}>
-      <caption>Чекбокс выделить все</caption>
+      <caption>
+        <label>
+          Выделить все
+          <input 
+            type="checkbox"
+            name="allCompanies"/>
+        </label>
+      </caption>
       <thead>
         <td>Чекбокс</td>
         <td>Компания</td>
@@ -24,12 +32,7 @@ export const CompaniesList = () => {
         <td>Адрес</td>
       </thead>
       <tbody>
-        <tr>
-          <td>чек</td>
-          <td>Компания 1</td>
-          <td>9</td>
-          <td>asdfsafsafsafasf</td>
-        </tr>
+        {companies.map(company => <TableItem key={company.id} {...company}/>)}
       </tbody>
     </table>
   );

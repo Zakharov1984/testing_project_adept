@@ -1,12 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import service from "../../API/service";
 
-interface ICompanies {
-  id: string;
-  name: string;
-  address: string;
-  employeeCounter: number;
-}
+import type { ICompanies } from '../../types/companiesTypes';
 
 interface ICompaniesInitialState {
   companies: ICompanies[];

@@ -1,8 +1,17 @@
+import { ICompanies } from '../../types/companiesTypes';
 
-const TableItem = () => {
+export const TableItem: React.FC<ICompanies> = ({id, name, address, employeeCounter}) => {
   return (
     <tr>
-      <td></td>
+      <td>
+        <input 
+          type="checkbox"
+          name="companies"
+          value={id}/>
+      </td>
+      <td>{name}</td>
+      <td>{employeeCounter}</td>
+      <td>{address}</td>
     </tr>
   )
 } 
