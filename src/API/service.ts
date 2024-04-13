@@ -4,7 +4,7 @@ import { IEmployeesForActive, IEmployees } from "../types/employeesType";
 type methodRequest = 'GET' | 'POST' | 'DELETE' | 'PUT';
 
 export default class Service {
-  public apiBase = 'http://localhost:3001/' as const;
+  private apiBase = 'http://localhost:3001' as const;
 
   public async getData(
     url: string, 
@@ -21,19 +21,21 @@ export default class Service {
         const data = await response.json();
 
         return data;
-      } catch(e) {
-        throw e;
+      } catch(error) {
+        if (error instanceof Error) {
+          console.error(error.message);
+        }
       }
   }
 
   public async getAllCompanies() {
-    const res: ICompanies[] = await this.getData(`${this.apiBase}companies`);
+    const res: ICompanies[] = await this.getData(`${this.apiBase}/companies`);
     console.log(res.map(this.transformCompanies));
     return res.map(this.transformCompanies);
   }
 
   public async getAllEmployees() {
-    const res: IEmployees = await this.getData(`${this.apiBase}employees`);
+    const res: IEmployees = await this.getData(`${this.apiBase}/employees`);
     console.log(res);
     return this.transformEmployees(res);
   }
@@ -46,7 +48,7 @@ export default class Service {
   }
 
   public transformEmployees(employees: IEmployees): IEmployeesForActive {
-    for (let key in employees) {
+    for (const key in employees) {
       employees[key] = employees[key].map(employee => {
         return {
           ...employee,
