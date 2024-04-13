@@ -26,10 +26,12 @@ export const CompaniesList = () => {
         </label>
       </caption>
       <thead>
-        <td>Чекбокс</td>
-        <td>Компания</td>
-        <td>Количество сотрудников</td>
-        <td>Адрес</td>
+        <tr>
+          <td>Чекбокс</td>
+          <td>Компания</td>
+          <td>Количество сотрудников</td>
+          <td>Адрес</td>
+        </tr>
       </thead>
       <tbody>
         {companies.map(company => <TableItem key={company.id} {...company}/>)}

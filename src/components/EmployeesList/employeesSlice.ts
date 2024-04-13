@@ -1,17 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import service from "../../API/service";
+import Service from "../../API/service";
 
-interface IEmployee {
-  id: string;
-  name: string;
-  surname: string;
-  post: string;
-  companyName: string;
-}
+import { IEmployees } from '../../types/employeesType'; 
 
-interface IEmployees {
-  [key: string]: IEmployee[];
-}
 
 interface IEmployeesInitialState {
   employees: IEmployees;
@@ -28,7 +19,8 @@ const initialState: IEmployeesInitialState = {
 export const fetchEmployees = createAsyncThunk(
   'employees/fetchEmployees',
   async () => {
-    return await service.getData('http://localhost:3001/employees');
+    const instanceS = new Service();
+    return await instanceS.getAllEmployees();
   }
 );
 

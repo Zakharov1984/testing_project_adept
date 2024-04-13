@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import service from "../../API/service";
+import Service from "../../API/service";
 
 import type { ICompanies } from '../../types/companiesTypes';
 
@@ -16,7 +16,8 @@ const initialState: ICompaniesInitialState = {
 export const fetchCompanies = createAsyncThunk(
   'companies/fetchCompanies',
   async () => {
-    return await service.getData('http://localhost:3001/companies');
+    const instanceS = new Service();
+    return await instanceS.getAllCompanies();
   }
 );
 

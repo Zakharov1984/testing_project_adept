@@ -4,3 +4,7 @@ export interface ICompanies {
   address: string;
   employeeCounter: number;
 }
+
+export interface ICompaniesForActive extends ICompanies {
+  active: boolean;
+}
