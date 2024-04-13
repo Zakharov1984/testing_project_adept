@@ -13,3 +13,25 @@
   padding: 15px;
   background: $main-bg-color;
 }
+
+table,
+td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+tr:hover td {
+  background-color: #AFD275;
+}
+
+caption {
+  caption-side: top;
+  text-align: center;
+  border: 1px solid black;
+}
+
+thead {
+  background-color: #C38D9E;
+}
