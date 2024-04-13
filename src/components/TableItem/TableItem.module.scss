@@ -1,3 +1,5 @@
+@import '../../app/styles/globalVar.scss';
+
 .active {
-  background-color: #C5CBE3;
+  background-color: $bg-table-item-active;
 }

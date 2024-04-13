@@ -1,3 +1,5 @@
+@import '../../app/styles/globalVar.scss';
+
 .companiesTable  {
-  background-color: #E27D60 ;
+  background-color: $bg-table-item;
 }
