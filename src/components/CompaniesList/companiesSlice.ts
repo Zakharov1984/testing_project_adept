@@ -25,7 +25,13 @@ const companiesSlice = createSlice({
   name: 'companies',
   initialState,
   reducers: {
-    
+    toggleActive: (state, action: {type: string, payload: string}) => {
+      state.companies.forEach(company => {
+        if (company.id === action.payload) {
+          company.isActive = !company.isActive;
+        }
+      })
+    }
   },
   extraReducers: (builder => {
     builder
@@ -46,5 +52,5 @@ const {actions, reducer} =  companiesSlice;
 export default reducer;
 
 export const {
-
+  toggleActive,
 } = actions;

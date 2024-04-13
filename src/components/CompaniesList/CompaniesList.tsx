@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
+import { ChangeEvent } from 'react';
+
 import { fetchCompanies } from './companiesSlice';
+import { TableItem } from '../TableItem/TableItem';
+import { toggleActive } from './companiesSlice';
 
 import st from './CompaniesList.module.scss';
-import { TableItem } from '../TableItem/TableItem';
+
 
 export const CompaniesList = () => {
   const dispatch = useAppDispatch();
@@ -14,6 +18,10 @@ export const CompaniesList = () => {
   useEffect(() => {
     dispatch(fetchCompanies());
   }, []);
+
+  const handleChangeCheckbox = (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch(toggleActive(event.target.value));
+  };
 
   return (
     <table className={st.companiesTable}>
@@ -34,7 +42,7 @@ export const CompaniesList = () => {
         </tr>
       </thead>
       <tbody>
-        {companies.map(company => <TableItem key={company.id} {...company}/>)}
+        {companies.map(company => <TableItem key={company.id} {...company} handleChange={handleChangeCheckbox}/>)}
       </tbody>
     </table>
   );

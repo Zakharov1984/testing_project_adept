@@ -1,15 +1,22 @@
+import { ChangeEvent } from "react"
 import { ICompaniesForActive } from "../../types/companiesTypes"
+import classNames from 'classnames';
 
+import st from './TableItem.module.scss';
+interface ITableItem extends ICompaniesForActive {
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
 
-export const TableItem: React.FC<ICompaniesForActive> = ({id, name, address, employeeCounter, isActive}) => {
+export const TableItem: React.FC<ITableItem> = ({id, name, address, employeeCounter, isActive, handleChange}) => { 
   return (
-    <tr>
+    <tr className={classNames({[st.active]: isActive})}>
       <td>
         <input 
           type="checkbox"
           name="companies"
           value={id}
-          checked={isActive}/>
+          checked={isActive}
+          onChange={handleChange}/>
       </td>
       <td>{name}</td>
       <td>{employeeCounter}</td>
