@@ -1,13 +1,15 @@
-import { ICompanies } from '../../types/companiesTypes';
+import { ICompaniesForActive } from "../../types/companiesTypes"
 
-export const TableItem: React.FC<ICompanies> = ({id, name, address, employeeCounter}) => {
+
+export const TableItem: React.FC<ICompaniesForActive> = ({id, name, address, employeeCounter, isActive}) => {
   return (
     <tr>
       <td>
         <input 
           type="checkbox"
           name="companies"
-          value={id}/>
+          value={id}
+          checked={isActive}/>
       </td>
       <td>{name}</td>
       <td>{employeeCounter}</td>

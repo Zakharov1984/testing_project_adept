@@ -34,13 +34,14 @@ export default class Service {
 
   public async getAllEmployees() {
     const res: IEmployees = await this.getData(`${this.apiBase}employees`);
+    console.log(res);
     return this.transformEmployees(res);
   }
 
   public transformCompanies(company: ICompanies): ICompaniesForActive {
     return {
       ...company,
-      active: false,
+      isActive: false,
     }
   }
 
@@ -49,7 +50,7 @@ export default class Service {
       employees[key] = employees[key].map(employee => {
         return {
           ...employee,
-          active: false,
+          isActive: false,
         }
       })
     }

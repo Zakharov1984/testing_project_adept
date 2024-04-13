@@ -15,5 +15,5 @@ export interface IEmployeesForActive {
 }
 
 export interface IEmployeeForActive extends IEmployee {
-  active: boolean;
+  isActive: boolean;
 }

@@ -6,5 +6,5 @@ export interface ICompanies {
 }
 
 export interface ICompaniesForActive extends ICompanies {
-  active: boolean;
+  isActive: boolean;
 }
