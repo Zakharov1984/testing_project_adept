@@ -11,7 +11,6 @@ import st from './TableItem.module.scss';
 
 interface ITableItem extends ICompaniesForActive {
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleEditField: () => void;
 }
 
 export const TableItem: React.FC<ITableItem> = ({
@@ -21,7 +20,6 @@ export const TableItem: React.FC<ITableItem> = ({
   employeeCounter, 
   isActive,
   handleChange,
-  handleEditField,
 }) => {
   const dispatch = useAppDispatch();
 

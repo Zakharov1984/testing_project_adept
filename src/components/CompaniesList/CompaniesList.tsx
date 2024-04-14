@@ -27,10 +27,6 @@ export const CompaniesList = () => {
     dispatch(toggleAllActive(event.target.checked));
   }
 
-  const handleEditField = (id: string) => {
-    console.log(id);
-  }
-
   return (
     <table className={st.companiesTable}>
       <caption>
@@ -57,8 +53,7 @@ export const CompaniesList = () => {
           company => <TableItem 
             key={company.id} 
             {...company} 
-            handleChange={handleChangeCheckbox}
-            handleEditField={() => handleEditField(company.id)}/>
+            handleChange={handleChangeCheckbox}/>
         )}
       </tbody>
     </table>
