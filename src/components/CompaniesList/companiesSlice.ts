@@ -15,6 +15,12 @@ const initialState: ICompaniesInitialState = {
   isActiveAllCompanies: false,
 }
 
+interface IEditFieldPayload {
+  name: string 
+  id: string 
+  value: string
+}
+
 export const fetchCompanies = createAsyncThunk(
   'companies/fetchCompanies',
   async () => {
@@ -46,7 +52,7 @@ const companiesSlice = createSlice({
         });
       }
     },
-    editField: (state, action: {type: string, payload: {name: string, id: string, value: string}}) => {
+    editField: (state, action: {type: string, payload: IEditFieldPayload}) => {
       state.companies.forEach(company => {
         if (company.id === action.payload.id) {
           action.payload.name === 'name' ? 
