@@ -29,8 +29,11 @@ tr:hover td {
 
 caption {
   caption-side: top;
-  text-align: center;
   border: 1px solid black;
+  text-align: center;
+}
+label {
+  position: relative;
 }
 
 thead {

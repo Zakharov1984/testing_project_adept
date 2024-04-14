@@ -6,11 +6,13 @@ import type { ICompaniesForActive } from '../../types/companiesTypes';
 interface ICompaniesInitialState {
   companies: ICompaniesForActive[];
   companiesLoadingStatus: 'idle' | 'loading' | 'error';
+  isActiveAllCompanies: boolean;
 }
 
 const initialState: ICompaniesInitialState = {
   companies: [],
   companiesLoadingStatus: 'idle',
+  isActiveAllCompanies: false,
 }
 
 export const fetchCompanies = createAsyncThunk(
@@ -19,7 +21,7 @@ export const fetchCompanies = createAsyncThunk(
     const instanceS = new Service();
     return await instanceS.getAllCompanies();
   }
-);
+)
 
 const companiesSlice = createSlice({
   name: 'companies',
@@ -31,6 +33,19 @@ const companiesSlice = createSlice({
           company.isActive = !company.isActive;
         }
       })
+    },
+    toggleAllActive: (state, action: {type: string, payload: boolean}) => {
+      state.isActiveAllCompanies = action.payload;
+      if (state.isActiveAllCompanies) {
+        state.companies.forEach(company => {
+          company.isActive =  true;
+        });
+      } else {
+        state.companies.forEach(company => {
+          company.isActive =  false;
+        });
+      }
+      
     }
   },
   extraReducers: (builder => {
@@ -53,4 +68,5 @@ export default reducer;
 
 export const {
   toggleActive,
+  toggleAllActive,
 } = actions;

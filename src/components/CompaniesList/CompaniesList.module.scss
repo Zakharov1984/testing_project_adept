@@ -3,3 +3,10 @@
 .companiesTable  {
   background-color: $bg-table-item;
 }
+
+.chbCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-38%);
+  margin-left: 5px;
+}

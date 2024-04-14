@@ -4,14 +4,14 @@ import { ChangeEvent } from 'react';
 
 import { fetchCompanies } from './companiesSlice';
 import { TableItem } from '../TableItem/TableItem';
-import { toggleActive } from './companiesSlice';
+import { toggleActive, toggleAllActive } from './companiesSlice';
 
 import st from './CompaniesList.module.scss';
 
 
 export const CompaniesList = () => {
   const dispatch = useAppDispatch();
-  const { companies, companiesLoadingStatus } = useAppSelector(
+  const { companies, companiesLoadingStatus, isActiveAllCompanies } = useAppSelector(
     (state) => state.companies
   );
 
@@ -23,14 +23,21 @@ export const CompaniesList = () => {
     dispatch(toggleActive(event.target.value));
   };
 
+  const handleChangeAllCheckBox = (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch(toggleAllActive(event.target.checked));
+  }
+
   return (
     <table className={st.companiesTable}>
       <caption>
         <label>
           Выделить все
-          <input 
+          <input
+            className={st.chbCenter} 
             type="checkbox"
-            name="allCompanies"/>
+            name="allCompanies"
+            checked={isActiveAllCompanies}
+            onChange={handleChangeAllCheckBox}/>
         </label>
       </caption>
       <thead>
