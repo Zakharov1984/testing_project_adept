@@ -32,8 +32,14 @@ caption {
   border: 1px solid black;
   text-align: center;
 }
+
 label {
   position: relative;
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
 }
 
 thead {
