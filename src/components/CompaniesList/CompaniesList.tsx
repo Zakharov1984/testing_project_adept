@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { ChangeEvent } from 'react';
 
 import { fetchCompanies } from './companiesSlice';
-import { TableItem } from '../TableItem/TableItem';
+import { TableItem } from '../CompaniesTableItem/CompaniesTableItem';
 import { toggleActive, toggleAllActive } from './companiesSlice';
 
 import st from './CompaniesList.module.scss';

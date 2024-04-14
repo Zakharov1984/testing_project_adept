@@ -1,9 +1,9 @@
-import { Companies } from "../pages/Companies/Companies"
+import { Main } from "../pages/Main/Main"
 
 export default function App(): JSX.Element {
   return (
     <div className="app">
-      <Companies/>
+      <Main/>
     </div>
   )
 }

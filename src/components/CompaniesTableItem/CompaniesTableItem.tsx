@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { editField } from "../CompaniesList/companiesSlice";
 
-import st from './TableItem.module.scss';
+import st from './CompaniesTableItem.module.scss';
 
 
 interface ITableItem extends ICompaniesForActive {
