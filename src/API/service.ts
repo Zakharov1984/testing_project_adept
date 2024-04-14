@@ -1,4 +1,4 @@
-import { ICompanies, ICompaniesForActiveEditable } from "../types/companiesTypes";
+import { ICompanies, ICompaniesForActive } from "../types/companiesTypes";
 import { IEmployeesForActive, IEmployees } from "../types/employeesType";
 
 type methodRequest = 'GET' | 'POST' | 'DELETE' | 'PUT';
@@ -40,11 +40,10 @@ export default class Service {
     return this.transformEmployees(res);
   }
 
-  public transformCompanies(company: ICompanies): ICompaniesForActiveEditable {
+  public transformCompanies(company: ICompanies): ICompaniesForActive {
     return {
       ...company,
       isActive: false,
-      isEditable: false,
     }
   }
 

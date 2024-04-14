@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react"
-import { ICompaniesForActiveEditable } from "../../types/companiesTypes"
+import { ICompaniesForActive } from "../../types/companiesTypes"
 import { useAppDispatch } from "../../hooks/hook";
 
 import classNames from 'classnames';
@@ -9,7 +9,7 @@ import { editField } from "../CompaniesList/companiesSlice";
 import st from './TableItem.module.scss';
 
 
-interface ITableItem extends ICompaniesForActiveEditable {
+interface ITableItem extends ICompaniesForActive {
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
   handleEditField: () => void;
 }
@@ -20,7 +20,6 @@ export const TableItem: React.FC<ITableItem> = ({
   address, 
   employeeCounter, 
   isActive,
-  isEditable, 
   handleChange,
   handleEditField,
 }) => {

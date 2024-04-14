@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import Service from "../../API/service";
 
-import type { ICompaniesForActiveEditable } from '../../types/companiesTypes';
+import type { ICompaniesForActive } from '../../types/companiesTypes';
 
 interface ICompaniesInitialState {
-  companies: ICompaniesForActiveEditable[];
+  companies: ICompaniesForActive[];
   companiesLoadingStatus: 'idle' | 'loading' | 'error';
   isActiveAllCompanies: boolean;
 }
@@ -59,7 +59,7 @@ const companiesSlice = createSlice({
   extraReducers: (builder => {
     builder
       .addCase(fetchCompanies.pending, state => {state.companiesLoadingStatus = 'loading'})
-      .addCase(fetchCompanies.fulfilled, (state, action: PayloadAction<ICompaniesForActiveEditable[]>) => {
+      .addCase(fetchCompanies.fulfilled, (state, action: PayloadAction<ICompaniesForActive[]>) => {
         state.companies = action.payload;
         state.companiesLoadingStatus = 'idle';
       })
