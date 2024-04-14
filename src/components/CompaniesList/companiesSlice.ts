@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import Service from "../../API/service";
 
-import type { ICompaniesForActive } from '../../types/companiesTypes';
+import type { ICompaniesForActiveEditable } from '../../types/companiesTypes';
 
 interface ICompaniesInitialState {
-  companies: ICompaniesForActive[];
+  companies: ICompaniesForActiveEditable[];
   companiesLoadingStatus: 'idle' | 'loading' | 'error';
   isActiveAllCompanies: boolean;
 }
@@ -45,13 +45,21 @@ const companiesSlice = createSlice({
           company.isActive =  false;
         });
       }
-      
-    }
+    },
+    editField: (state, action: {type: string, payload: {name: string, id: string, value: string}}) => {
+      state.companies.forEach(company => {
+        if (company.id === action.payload.id) {
+          action.payload.name === 'name' ? 
+          company.name = action.payload.value :
+          company.address = action.payload.value;
+        }
+      })
+    },
   },
   extraReducers: (builder => {
     builder
       .addCase(fetchCompanies.pending, state => {state.companiesLoadingStatus = 'loading'})
-      .addCase(fetchCompanies.fulfilled, (state, action: PayloadAction<ICompaniesForActive[]>) => {
+      .addCase(fetchCompanies.fulfilled, (state, action: PayloadAction<ICompaniesForActiveEditable[]>) => {
         state.companies = action.payload;
         state.companiesLoadingStatus = 'idle';
       })
@@ -69,4 +77,5 @@ export default reducer;
 export const {
   toggleActive,
   toggleAllActive,
+  editField,
 } = actions;

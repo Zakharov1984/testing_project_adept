@@ -5,6 +5,7 @@ export interface ICompanies {
   employeeCounter: number;
 }
 
-export interface ICompaniesForActive extends ICompanies {
+export interface ICompaniesForActiveEditable extends ICompanies {
   isActive: boolean;
+  isEditable: boolean;
 }
