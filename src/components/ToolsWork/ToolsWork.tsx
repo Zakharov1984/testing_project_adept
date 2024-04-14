@@ -1,6 +1,8 @@
 import { MainInput} from "../../UI/MainInput/MainInput";
 import { MainButton } from "../../UI/MainButton/MainButton";
 
+import st from './ToolsWork.module.scss';
+
 interface IToolsWorkProps {
   type: string;
 }
@@ -8,9 +10,9 @@ interface IToolsWorkProps {
 export const ToolsWork: React.FC<IToolsWorkProps> = ({type}) => {
   return (
     type === 'companies' ?
-      <div className="tools">
-        <h2 className="tools__title">Инструменты для работы с таблицей 'Компании'</h2>
-        <section className="tools__add">
+      <div className={st.tools}>
+        <h2 className={st.tools__title}>Инструменты для работы с таблицей 'Компании'</h2>
+        <section className={st.tools__add}>
           <MainInput
             type="text"
             name="name"
@@ -21,6 +23,9 @@ export const ToolsWork: React.FC<IToolsWorkProps> = ({type}) => {
             name="address"
             value="value"
             placeholder="Адрес компании"/>
+          <MainButton>
+            Добавить Компанию
+          </MainButton>
         </section>
         <section className="tools__delete">
           <button>Удалить выбранные компании</button>

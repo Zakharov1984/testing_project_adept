@@ -1,7 +1,7 @@
 interface IMainButtonProps {
-  text: string;
+  children: string;
 }
 
-export const MainButton: React.FC<IMainButtonProps> = ({text}) => {
-  return <button></button>
+export const MainButton: React.FC<IMainButtonProps> = ({children}) => {
+  return <button>{children}</button>
 }
