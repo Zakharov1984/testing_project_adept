@@ -53,7 +53,7 @@ export const CompaniesList = () => {
           company => <TableItem 
             key={company.id} 
             {...company} 
-            handleChange={handleChangeCheckbox}/>
+            handleChangeCheckbox={handleChangeCheckbox}/>
         )}
       </tbody>
     </table>

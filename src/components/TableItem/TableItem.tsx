@@ -10,7 +10,7 @@ import st from './TableItem.module.scss';
 
 
 interface ITableItem extends ICompaniesForActive {
-  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleChangeCheckbox: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const TableItem: React.FC<ITableItem> = ({
@@ -19,7 +19,7 @@ export const TableItem: React.FC<ITableItem> = ({
   address, 
   employeeCounter, 
   isActive,
-  handleChange,
+  handleChangeCheckbox,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -55,7 +55,7 @@ export const TableItem: React.FC<ITableItem> = ({
           name="companies"
           value={id}
           checked={isActive}
-          onChange={handleChange}/>
+          onChange={handleChangeCheckbox}/>
       </td>
 
       <td onDoubleClick={() => {
