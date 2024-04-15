@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 
 import { EmployeesList } from '../EmployeesList/EmployeesList';
-import { useAppDispatch } from '../../hooks/hook';
+import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { fetchEmployees } from '../EmployeesList/employeesSlice';
 
 export const Employees = () => {
   const dispatch = useAppDispatch();
+  const {activeCompanies} = useAppSelector(state => state.companies)
 
   useEffect(() => {
     dispatch(fetchEmployees());
@@ -13,7 +14,9 @@ export const Employees = () => {
 
   return (
     <section className="employees">
-      <EmployeesList/>
+      {activeCompanies.map(
+        activeCompany => <EmployeesList key={activeCompany} companyName={activeCompany}/> 
+      )}
     </section>
   )
 }

@@ -1,11 +1,19 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../hooks/hook";
+import { useAppSelector } from "../../hooks/hook";
 import { EmployeesTableItem } from '../EmployeesTableItem/EmployeesTableItem';
 
-export const EmployeesList = () => {
+import st from './EmployeesList.module.scss';
+
+interface IEmployeesList {
+  companyName: string
+}
+
+export const EmployeesList: React.FC<IEmployeesList> = ({companyName}) => {
   const { employees } = useAppSelector(
     (state) => state.employees
   );
+
+  console.log(employees);
 
   const isActiveAllEmployees = () => {
 
@@ -16,8 +24,8 @@ export const EmployeesList = () => {
   }
 
   return (
-    <article>
-      <h3>Имя Компании</h3>
+    <article className={st.employeesList}>
+      <h3>{companyName}</h3>
       <table className="bg-table">
         <caption>
           <label>
@@ -38,7 +46,7 @@ export const EmployeesList = () => {
           </tr>
         </thead>
         <tbody>
-          {employees.Company0?.map(
+          {employees[companyName]?.map(
               employee => <EmployeesTableItem 
                 key={employee.id} 
                 {...employee}/>

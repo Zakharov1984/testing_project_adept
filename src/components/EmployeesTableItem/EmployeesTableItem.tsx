@@ -16,15 +16,21 @@ export const EmployeesTableItem: React.FC<EmployeesTableItem> = ({
   companyName,
   isActive
 }) => {
+  console.log(name);
+
+  const handleChangeCheckbox = () => {
+    console.log('change');
+  }
+
   return (
     <tr>
-    {/* <tr className={classNames({[st.active]: isActive})}></tr> */}
       <td>
         <input 
           type="checkbox"
-          name="companies"
+          name="employee"
           value={id}
-          checked={isActive}/>
+          checked={isActive}
+          onChange={handleChangeCheckbox}/>
       </td>
       <td>{surname}</td>
       <td>{name}</td>
