@@ -6,9 +6,6 @@ import classNames from 'classnames';
 
 import { editField } from "../CompaniesList/companiesSlice";
 
-import st from './CompaniesTableItem.module.scss';
-
-
 interface CompaniesTableItem extends ICompanyForActive {
   handleChangeCheckbox: (event: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -48,7 +45,7 @@ export const CompaniesTableItem: React.FC<CompaniesTableItem> = ({
   }
   
   return (
-    <tr className={classNames({[st.active]: isActive})}>
+    <tr className={classNames({'active': isActive})}>
       <td>
         <input 
           type="checkbox"

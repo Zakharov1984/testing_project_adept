@@ -87,3 +87,7 @@ thead {
   transform: translateY(-38%);
   margin-left: 5px;
 }
+
+.active {
+  background-color: $bg-table-item-active;
+}

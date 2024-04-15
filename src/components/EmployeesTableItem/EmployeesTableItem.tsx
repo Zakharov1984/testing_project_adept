@@ -1,7 +1,7 @@
-import classNames from 'classnames';
-import st from './EmployeesTableItem.module.scss';
-import { IEmployeeForActive } from '../../types/employeesType';
 import { ChangeEvent } from 'react';
+import { IEmployeeForActive } from '../../types/employeesType';
+
+import classNames from 'classnames';
 
 interface EmployeesTableItem extends IEmployeeForActive {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -18,7 +18,7 @@ export const EmployeesTableItem: React.FC<EmployeesTableItem> = ({
   onChange
 }) => {
   return (
-    <tr>
+    <tr className={classNames({'active': isActive})}>
       <td>
         <input 
           type="checkbox"
