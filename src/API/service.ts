@@ -1,4 +1,4 @@
-import { ICompanies, ICompaniesForActive } from "../types/companiesTypes";
+import { ICompany, ICompanyForActive } from "../types/companiesTypes";
 import { IEmployeesForActive, IEmployees } from "../types/employeesType";
 
 type methodRequest = 'GET' | 'POST' | 'DELETE' | 'PUT';
@@ -29,7 +29,7 @@ export default class Service {
   }
 
   public async getAllCompanies() {
-    const res: ICompanies[] = await this.getData(`${this.apiBase}/companies`);
+    const res: ICompany[] = await this.getData(`${this.apiBase}/companies`);
     console.log(res.map(this.transformCompanies));
     return res.map(this.transformCompanies);
   }
@@ -40,7 +40,7 @@ export default class Service {
     return this.transformEmployees(res);
   }
 
-  public transformCompanies(company: ICompanies): ICompaniesForActive {
+  public transformCompanies(company: ICompany): ICompanyForActive {
     return {
       ...company,
       isActive: false,
