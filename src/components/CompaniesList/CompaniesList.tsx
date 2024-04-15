@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { ChangeEvent } from 'react';
 
-import { fetchCompanies } from './companiesSlice';
+import { fetchCompanies, toggleActive, toggleAllActive } from './companiesSlice';
 import { TableItem } from '../CompaniesTableItem/CompaniesTableItem';
-import { toggleActive, toggleAllActive } from './companiesSlice';
+import { Spinner } from '../../UI/Spinner/Spinner';
 
 import st from './CompaniesList.module.scss';
 
@@ -25,6 +25,12 @@ export const CompaniesList = () => {
 
   const handleChangeAllCheckBox = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(toggleAllActive(event.target.checked));
+  }
+
+  if (companiesLoadingStatus === 'loading') {
+    return <Spinner/>
+  } else if (companiesLoadingStatus === 'error') {
+    return <h2>Произошла ошибка загрузки данных</h2>
   }
 
   return (
