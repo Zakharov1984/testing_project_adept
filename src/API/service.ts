@@ -1,5 +1,5 @@
 import { ICompany, ICompanyForActive } from "../types/companiesTypes";
-import { IEmployeesForActive, IEmployees } from "../types/employeesType";
+import { IEmployeeForActive, IEmployeesForActive, IEmployees } from "../types/employeesType";
 
 type methodRequest = 'GET' | 'POST' | 'DELETE' | 'PUT';
 
@@ -30,7 +30,6 @@ export default class Service {
 
   public async getAllCompanies() {
     const res: ICompany[] = await this.getData(`${this.apiBase}/companies`);
-    console.log(res.map(this.transformCompanies));
     return res.map(this.transformCompanies);
   }
 

@@ -9,11 +9,11 @@ import { editField } from "../CompaniesList/companiesSlice";
 import st from './CompaniesTableItem.module.scss';
 
 
-interface ITableItem extends ICompanyForActive {
+interface CompaniesTableItem extends ICompanyForActive {
   handleChangeCheckbox: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const TableItem: React.FC<ITableItem> = ({
+export const CompaniesTableItem: React.FC<CompaniesTableItem> = ({
   id, 
   name, 
   address, 

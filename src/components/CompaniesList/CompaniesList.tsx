@@ -3,13 +3,15 @@ import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { ChangeEvent } from 'react';
 
 import { fetchCompanies, toggleActive, toggleAllActive } from './companiesSlice';
-import { TableItem } from '../CompaniesTableItem/CompaniesTableItem';
+import { CompaniesTableItem } from '../CompaniesTableItem/CompaniesTableItem';
 import { Spinner } from '../../UI/Spinner/Spinner';
 
 
 export const CompaniesList = () => {
   const dispatch = useAppDispatch();
-  const { companies, companiesLoadingStatus, isActiveAllCompanies } = useAppSelector(
+  const { companies, 
+          companiesLoadingStatus, 
+          isActiveAllCompanies } = useAppSelector(
     (state) => state.companies
   );
 
@@ -54,7 +56,7 @@ export const CompaniesList = () => {
       </thead>
       <tbody>
         {companies.map(
-          company => <TableItem 
+          company => <CompaniesTableItem 
             key={company.id} 
             {...company} 
             handleChangeCheckbox={handleChangeCheckbox}/>

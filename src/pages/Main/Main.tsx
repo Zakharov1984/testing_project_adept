@@ -1,13 +1,13 @@
 import { Companies } from '../../components/Companies/Companies';
-import { EmployeesList } from '../../components/EmployeesList/EmployeesList';
+import { Employees } from '../../components/Employees/Employees';
 import st from './Main.module.scss';
 
 
 export const Main = (): JSX.Element => {
   return (
-    <main className={st.companies}>
+    <main className={st.main}>
       <Companies/>
-      <EmployeesList/>
+      <Employees/>
     </main>
   )
 }
