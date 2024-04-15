@@ -11,6 +11,13 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  margin: 0;
+  border: 1px solid black;
+  border-bottom: none;
+  background: $bg-h3;
+}
+
 input {
   outline: none;
   padding: 3px;
