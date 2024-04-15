@@ -2,7 +2,7 @@ import { MainInput} from "../../UI/MainInput/MainInput";
 import { MainButton } from "../../UI/MainButton/MainButton";
 import { MainSeparator } from "../../UI/MainSeparator/MainSeparator";
 import { useAppDispatch } from "../../hooks/hook";
-import { addCompany } from "../CompaniesList/companiesSlice";
+import { addCompany, deleteCompanies } from "../CompaniesList/companiesSlice";
 import type { ICompanyForActive } from "../../types/companiesTypes";
 
 import { useState } from "react";
@@ -39,6 +39,10 @@ export const CompaniesToolsWork: React.FC<IToolsWorkProps> = ({type}) => {
     dispatch(addCompany(newCompany));
   }
 
+  const handleDeleteCompanies = () => {
+    dispatch(deleteCompanies());
+  }
+
   return (
       <div className={st.tools}>
         <h2 className={st.tools__title}>Инструменты для работы с таблицей 'Компании'</h2>
@@ -61,7 +65,9 @@ export const CompaniesToolsWork: React.FC<IToolsWorkProps> = ({type}) => {
         </section>
         <MainSeparator/>
         <section className="tools__delete">
-          <MainButton>Удалить выбранные компании</MainButton>
+          <MainButton onClick={handleDeleteCompanies}>
+            Удалить выбранные компании
+          </MainButton>
         </section>
       </div>
   )   

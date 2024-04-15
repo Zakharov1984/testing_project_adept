@@ -63,7 +63,10 @@ const companiesSlice = createSlice({
     },
     addCompany: (state, action: {type: string, payload: ICompanyForActive}) => {
       state.companies.push(action.payload);
-    }
+    },
+    deleteCompanies: state => {
+      state.companies = state.companies.filter(company => !company.isActive);
+    },
   },
   extraReducers: (builder => {
     builder
@@ -88,4 +91,5 @@ export const {
   toggleAllActive,
   editField,
   addCompany,
+  deleteCompanies,
 } = actions;
