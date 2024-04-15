@@ -4,7 +4,7 @@ import { CompaniesToolsWork } from '../CompaniesToolsWork/CompaniesToolsWork';
 export const Companies = () => {
   return (
     <section className="companies">
-      <CompaniesToolsWork type='companies'/>
+      <CompaniesToolsWork/>
       <CompaniesList/>
     </section>
   )

@@ -11,11 +11,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 import st from './CompaniesToolsWork.module.scss';
 
-interface IToolsWorkProps {
-  type: string;
-}
 
-export const CompaniesToolsWork: React.FC<IToolsWorkProps> = ({type}) => {
+export const CompaniesToolsWork = () => {
 
   const dispatch = useAppDispatch();
 
