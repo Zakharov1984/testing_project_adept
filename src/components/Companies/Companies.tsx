@@ -1,5 +1,5 @@
 import { CompaniesList } from '../CompaniesList/CompaniesList';
-import { ToolsWork } from '../ToolsWork/ToolsWork';
+import { ToolsWork } from '../CompaniesToolsWork/CompaniesToolsWork';
 
 import st from './Companies.module.scss';
 
