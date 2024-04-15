@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react"
-import { ICompaniesForActive } from "../../types/companiesTypes"
+import { ICompanyForActive } from "../../types/companiesTypes"
 import { useAppDispatch } from "../../hooks/hook";
 
 import classNames from 'classnames';
@@ -9,7 +9,7 @@ import { editField } from "../CompaniesList/companiesSlice";
 import st from './CompaniesTableItem.module.scss';
 
 
-interface ITableItem extends ICompaniesForActive {
+interface ITableItem extends ICompanyForActive {
   handleChangeCheckbox: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 

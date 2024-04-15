@@ -1,10 +1,10 @@
-export interface ICompanies {
+export interface ICompany {
   id: string;
   name: string;
   address: string;
   employeeCounter: number;
 }
 
-export interface ICompaniesForActive extends ICompanies {
+export interface ICompanyForActive extends ICompany {
   isActive: boolean;
 }
