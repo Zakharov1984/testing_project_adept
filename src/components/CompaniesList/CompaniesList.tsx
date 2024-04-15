@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { ChangeEvent } from 'react';
 
-import { fetchCompanies, toggleActive, toggleAllActive } from './companiesSlice';
+import { addActiveCompanies, fetchCompanies, toggleActive, toggleAllActive } from './companiesSlice';
 import { CompaniesTableItem } from '../CompaniesTableItem/CompaniesTableItem';
 import { Spinner } from '../../UI/Spinner/Spinner';
 
@@ -21,10 +21,12 @@ export const CompaniesList = () => {
 
   const handleChangeCheckbox = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(toggleActive(event.target.value));
+    dispatch(addActiveCompanies());
   };
 
   const handleChangeAllCheckBox = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(toggleAllActive(event.target.checked));
+    dispatch(addActiveCompanies());
   }
 
   if (companiesLoadingStatus === 'loading') {

@@ -7,12 +7,15 @@ interface ICompaniesInitialState {
   companies: ICompanyForActive[];
   companiesLoadingStatus: 'idle' | 'loading' | 'error';
   isActiveAllCompanies: boolean;
+  activeCompanies: string[];
+
 }
 
 const initialState: ICompaniesInitialState = {
   companies: [],
   companiesLoadingStatus: 'idle',
   isActiveAllCompanies: false,
+  activeCompanies: [],
 }
 
 interface IEditFieldPayload {
@@ -51,6 +54,11 @@ const companiesSlice = createSlice({
           company.isActive =  false;
         });
       }
+    },
+    addActiveCompanies: state => {
+      state.activeCompanies = state.companies
+      .filter(company => company.isActive)
+      .map(company => company.name);
     },
     editField: (state, action: {type: string, payload: IEditFieldPayload}) => {
       state.companies.forEach(company => {
@@ -92,4 +100,5 @@ export const {
   editField,
   addCompany,
   deleteCompanies,
+  addActiveCompanies,
 } = actions;
