@@ -6,8 +6,6 @@ import { fetchCompanies, toggleActive, toggleAllActive } from './companiesSlice'
 import { TableItem } from '../CompaniesTableItem/CompaniesTableItem';
 import { Spinner } from '../../UI/Spinner/Spinner';
 
-import st from './CompaniesList.module.scss';
-
 
 export const CompaniesList = () => {
   const dispatch = useAppDispatch();
@@ -34,12 +32,12 @@ export const CompaniesList = () => {
   }
 
   return (
-    <table className={st.companiesTable}>
+    <table className='bg-table'>
       <caption>
         <label>
           Выделить все
           <input
-            className={st.chbCenter} 
+            className="chbCenter" 
             type="checkbox"
             name="allCompanies"
             checked={isActiveAllCompanies}
