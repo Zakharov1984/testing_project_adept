@@ -61,6 +61,9 @@ const companiesSlice = createSlice({
         }
       })
     },
+    addCompany: (state, action: {type: string, payload: ICompanyForActive}) => {
+      state.companies.push(action.payload);
+    }
   },
   extraReducers: (builder => {
     builder
@@ -84,4 +87,5 @@ export const {
   toggleActive,
   toggleAllActive,
   editField,
+  addCompany,
 } = actions;

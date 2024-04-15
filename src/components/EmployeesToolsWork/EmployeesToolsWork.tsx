@@ -2,8 +2,13 @@ import { MainInput } from "../../UI/MainInput/MainInput"
 
 
 export const EmployeesToolsWork = () => {
-  return (
-    <div className="tools">
+  return ( <div></div> 
+  )
+}
+
+/* 
+
+<div className="tools">
         <h2 className="tools__title">Инструменты для работы с таблицей 'Сотрудники'</h2>
         <section className="tools__add">
           <MainInput
@@ -26,5 +31,4 @@ export const EmployeesToolsWork = () => {
           <button>Удалить выбранных сотрудников</button>
         </section>
       </div>
-  )
-}
+*/
