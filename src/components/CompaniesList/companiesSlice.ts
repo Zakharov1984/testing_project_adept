@@ -8,7 +8,6 @@ interface ICompaniesInitialState {
   companiesLoadingStatus: 'idle' | 'loading' | 'error';
   isActiveAllCompanies: boolean;
   activeCompanies: string[];
-
 }
 
 const initialState: ICompaniesInitialState = {

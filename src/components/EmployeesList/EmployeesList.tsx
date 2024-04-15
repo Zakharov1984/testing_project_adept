@@ -1,27 +1,25 @@
-import { useEffect } from "react";
-import { useAppSelector } from "../../hooks/hook";
+import { ChangeEvent, useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/hook";
 import { EmployeesTableItem } from '../EmployeesTableItem/EmployeesTableItem';
 
 import st from './EmployeesList.module.scss';
 
 interface IEmployeesList {
-  companyName: string
+  companyName: string,
+  onChangeAllCheckBox: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeCheckBox: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const EmployeesList: React.FC<IEmployeesList> = ({companyName}) => {
+export const EmployeesList: React.FC<IEmployeesList> = ({
+  companyName, 
+  onChangeAllCheckBox,
+  onChangeCheckBox
+}) => {
   const { employees } = useAppSelector(
     (state) => state.employees
   );
 
-  console.log(employees);
-
-  const isActiveAllEmployees = () => {
-
-  }
-
-  const handleChangeAllCheckBox = () => {
-
-  }
+  const [isAllActiveCheckBox, setIsAllActiveCheckBox] = useState(false);
 
   return (
     <article className={st.employeesList}>
@@ -34,7 +32,12 @@ export const EmployeesList: React.FC<IEmployeesList> = ({companyName}) => {
               className="chbCenter" 
               type="checkbox"
               name="allEmployees"
-              checked={false}/>
+              value={companyName}
+              checked={isAllActiveCheckBox}
+              onChange={(e) => {
+                setIsAllActiveCheckBox(!isAllActiveCheckBox);
+                onChangeAllCheckBox(e);
+              }}/>
           </label>
         </caption>
         <thead>
@@ -49,7 +52,8 @@ export const EmployeesList: React.FC<IEmployeesList> = ({companyName}) => {
           {employees[companyName]?.map(
               employee => <EmployeesTableItem 
                 key={employee.id} 
-                {...employee}/>
+                {...employee}
+                onChange={onChangeCheckBox}/>
           )}
         </tbody>
       </table>

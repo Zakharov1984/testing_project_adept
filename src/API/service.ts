@@ -1,5 +1,5 @@
 import { ICompany, ICompanyForActive } from "../types/companiesTypes";
-import { IEmployeeForActive, IEmployeesForActive, IEmployees } from "../types/employeesType";
+import { IEmployeesForActive, IEmployees } from "../types/employeesType";
 
 type methodRequest = 'GET' | 'POST' | 'DELETE' | 'PUT';
 

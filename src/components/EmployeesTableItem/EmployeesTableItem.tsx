@@ -4,7 +4,7 @@ import { IEmployeeForActive } from '../../types/employeesType';
 import { ChangeEvent } from 'react';
 
 interface EmployeesTableItem extends IEmployeeForActive {
-  //handleChangeCheckbox: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 
@@ -14,23 +14,18 @@ export const EmployeesTableItem: React.FC<EmployeesTableItem> = ({
   surname,
   post,
   companyName,
-  isActive
+  isActive,
+  onChange
 }) => {
-  console.log(name);
-
-  const handleChangeCheckbox = () => {
-    console.log('change');
-  }
-
   return (
     <tr>
       <td>
         <input 
           type="checkbox"
-          name="employee"
+          name={companyName}
           value={id}
           checked={isActive}
-          onChange={handleChangeCheckbox}/>
+          onChange={onChange}/>
       </td>
       <td>{surname}</td>
       <td>{name}</td>

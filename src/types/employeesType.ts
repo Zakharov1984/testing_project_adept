@@ -6,6 +6,7 @@ export interface IEmployee {
   companyName: string;
 }
 
+
 export interface IEmployees {
   [key: string]: IEmployee[];
 }

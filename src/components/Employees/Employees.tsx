@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { ChangeEvent, useEffect } from 'react';
 
 import { EmployeesList } from '../EmployeesList/EmployeesList';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
-import { fetchEmployees } from '../EmployeesList/employeesSlice';
+import { fetchEmployees, toggleActiveEmployee, toggleAllActiveEmployees } from '../EmployeesList/employeesSlice';
 
 export const Employees = () => {
   const dispatch = useAppDispatch();
@@ -12,10 +12,30 @@ export const Employees = () => {
     dispatch(fetchEmployees());
   }, [])
 
+  const handleChangeAllCheckBox = (event: ChangeEvent<HTMLInputElement>) => {
+    const data = {
+      companyName: event.target.value,
+      isAllActiveEmployees: event.target.checked,
+    }
+    dispatch(toggleAllActiveEmployees(data));
+  }
+
+  const handleChangeCheckbox = (event: ChangeEvent<HTMLInputElement>) => {
+    const data = {
+      companyName: event.target.name,
+      employeeId: event.target.value,
+    }
+    dispatch(toggleActiveEmployee(data));
+  }
+
   return (
     <section className="employees">
       {activeCompanies.map(
-        activeCompany => <EmployeesList key={activeCompany} companyName={activeCompany}/> 
+        activeCompany => <EmployeesList 
+          key={activeCompany} 
+          companyName={activeCompany} 
+          onChangeAllCheckBox={handleChangeAllCheckBox}
+          onChangeCheckBox={handleChangeCheckbox}/> 
       )}
     </section>
   )
