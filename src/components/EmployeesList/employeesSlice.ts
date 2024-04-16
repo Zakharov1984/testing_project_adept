@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Service from "../../API/service";
 
-import { IEmployees, IEmployeesForActive } from '../../types/employeesType'; 
+import { IEmployeeForActive, IEmployees, IEmployeesForActive } from '../../types/employeesType'; 
 
 
 interface IEmployeesInitialState {
@@ -55,7 +55,12 @@ const employeesSlice = createSlice({
           employee.isActive = false;
         }
       })
-    }
+    },
+    addEmployee: (state, action: {type: string, payload: IEmployeeForActive}) => {
+      if (action.payload.companyName !== 'Выберете компанию для добавления') {
+        state.employees[action.payload.companyName].push(action.payload);
+      }      
+    },
   },
   extraReducers: (builder => {
     builder
@@ -78,4 +83,5 @@ export default reducer;
 export const {
   toggleActiveEmployee,
   toggleAllActiveEmployees,
+  addEmployee,
 } = actions;

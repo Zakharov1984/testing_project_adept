@@ -18,10 +18,20 @@ h3 {
   background: $bg-h3;
 }
 
-input {
+input, select {
   outline: none;
   padding: 3px;
   padding-right: 10px;
+}
+
+select {
+  width: 50%;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+option {
+  text-align: left;
 }
 
 button {

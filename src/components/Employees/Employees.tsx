@@ -3,10 +3,11 @@ import { ChangeEvent, useEffect } from 'react';
 import { EmployeesList } from '../EmployeesList/EmployeesList';
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { fetchEmployees, toggleActiveEmployee, toggleAllActiveEmployees } from '../EmployeesList/employeesSlice';
+import { EmployeesToolsWork } from '../EmployeesToolsWork/EmployeesToolsWork';
 
 export const Employees = () => {
   const dispatch = useAppDispatch();
-  const {activeCompanies} = useAppSelector(state => state.companies)
+  const {activeCompanies} = useAppSelector(state => state.companies);
 
   useEffect(() => {
     dispatch(fetchEmployees());
@@ -30,6 +31,7 @@ export const Employees = () => {
 
   return (
     <section className="employees">
+      <EmployeesToolsWork/>
       {activeCompanies.map(
         activeCompany => <EmployeesList 
           key={activeCompany} 

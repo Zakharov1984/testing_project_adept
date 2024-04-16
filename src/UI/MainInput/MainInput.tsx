@@ -4,7 +4,8 @@ interface IMainInputProps {
   name: string;
   value: string;
   placeholder?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  className?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const MainInput: React.FC<IMainInputProps> = ({
@@ -12,6 +13,7 @@ export const MainInput: React.FC<IMainInputProps> = ({
   name, 
   value, 
   placeholder = '',
+  className,
   onChange,
 }) => {
   return <input 
@@ -19,5 +21,6 @@ export const MainInput: React.FC<IMainInputProps> = ({
     name={name} 
     value={value}
     placeholder={placeholder}
+    className={className}
     onChange={onChange}/>
 }

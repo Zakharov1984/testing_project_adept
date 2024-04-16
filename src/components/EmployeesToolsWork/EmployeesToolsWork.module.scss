@@ -1,0 +1,25 @@
+@import '../../app/styles/globalVar.scss';
+
+.toolsEmployees {
+  margin-bottom: 20px;
+  padding: $main-padding;
+  border: 1px solid black;
+  
+  &__title {
+    margin-bottom: 15px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  &__add {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  &__inp {
+    width: 50%;
+    margin-bottom: 15px;
+  }
+}
