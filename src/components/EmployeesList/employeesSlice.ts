@@ -61,6 +61,11 @@ const employeesSlice = createSlice({
         state.employees[action.payload.companyName].push(action.payload);
       }      
     },
+    deleteEmployees: state => {
+      for (const key in state.employees) {
+        state.employees[key] = state.employees[key].filter(employee => !employee.isActive)
+      }
+    },
     addCompanyInEmployees: (state, action: {type: string, payload: string}) => {
       state.employees[action.payload] = [];
     }
@@ -88,4 +93,5 @@ export const {
   toggleAllActiveEmployees,
   addEmployee,
   addCompanyInEmployees,
+  deleteEmployees,
 } = actions;

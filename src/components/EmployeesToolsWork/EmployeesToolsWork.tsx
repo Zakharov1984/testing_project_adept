@@ -3,7 +3,7 @@ import { MainInput } from "../../UI/MainInput/MainInput";
 import { MainSeparator } from "../../UI/MainSeparator/MainSeparator";
 import { MainSelect } from "../../UI/MainSelect/MainSelect";
 import { useAppDispatch, useAppSelector } from "../../hooks/hook";
-import { addEmployee } from "../EmployeesList/employeesSlice";
+import { addEmployee, deleteEmployees } from "../EmployeesList/employeesSlice";
 import { IEmployeeForActive } from "../../types/employeesType";
 
 import { useState } from "react"
@@ -50,6 +50,10 @@ export const EmployeesToolsWork = () => {
     dispatch(addEmployee(newEmployee));
   }
 
+  const handleDeleteEmployees = () => {
+    dispatch(deleteEmployees());
+  }
+
   return ( 
     <div className={st.toolsEmployees}>
       <h2 className={st.toolsEmployees__title}>Инструменты для работы с таблицей 'Сотрудники'</h2>
@@ -92,7 +96,10 @@ export const EmployeesToolsWork = () => {
       </section>
       <MainSeparator/>
       <section className="tools__delete">
-        <button>Удалить выбранных сотрудников</button>
+        <MainButton
+          onClick={handleDeleteEmployees}>
+            Удалить выбранных сотрудников
+        </MainButton>
       </section>
     </div>
   )
