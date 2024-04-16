@@ -87,6 +87,10 @@ thead {
   background-color: #C38D9E;
 }
 
+thead:hover td {
+background-color: #C38D9E;
+}
+
 .bg-table {
   background-color: $bg-table-item;
 }
