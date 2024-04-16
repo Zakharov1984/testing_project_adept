@@ -31,7 +31,9 @@ export const Employees = () => {
 
   return (
     <section className="employees">
-      <EmployeesToolsWork/>
+      {
+        activeCompanies.length ? <EmployeesToolsWork/> : ''
+      }
       {activeCompanies.map(
         activeCompany => <EmployeesList 
           key={activeCompany} 

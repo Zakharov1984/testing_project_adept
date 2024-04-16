@@ -32,7 +32,7 @@ export const CompaniesTableItem: React.FC<ICompaniesTableItem> = ({
   })
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputsValue(state => ({...state, [e.target.name]: e.target.value}))
+    setInputsValue(state => ({...state, [e.target.name]: e.target.value}));
   }
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
