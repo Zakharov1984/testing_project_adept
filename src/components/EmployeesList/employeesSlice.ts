@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Service from "../../API/service";
 
-import { IEmployeeForActive, IEmployees, IEmployeesForActive } from '../../types/employeesType'; 
+import { IEmployeeForActive, IEmployeesForActive } from '../../types/employeesType'; 
 
 
 interface IEmployeesInitialState {
@@ -41,7 +41,7 @@ const employeesSlice = createSlice({
   initialState,
   reducers: {
     toggleActiveEmployee: (state, action: {type: string, payload: IToggleActivePayload}) => {
-      state.employees[action.payload.companyName].map(employee => {
+      state.employees[action.payload.companyName].forEach(employee => {
         if (employee.id === action.payload.employeeId) {
           employee.isActive = !employee.isActive;
         }

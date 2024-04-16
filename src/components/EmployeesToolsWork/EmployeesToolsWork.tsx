@@ -1,7 +1,6 @@
 import { MainButton } from "../../UI/MainButton/MainButton";
 import { MainInput } from "../../UI/MainInput/MainInput";
 import { MainSeparator } from "../../UI/MainSeparator/MainSeparator";
-import { MainSelect } from "../../UI/MainSelect/MainSelect";
 import { useAppDispatch, useAppSelector } from "../../hooks/hook";
 import { addEmployee, deleteEmployees } from "../EmployeesList/employeesSlice";
 import { IEmployeeForActive } from "../../types/employeesType";
