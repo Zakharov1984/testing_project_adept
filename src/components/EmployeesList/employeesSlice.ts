@@ -61,6 +61,9 @@ const employeesSlice = createSlice({
         state.employees[action.payload.companyName].push(action.payload);
       }      
     },
+    addCompanyInEmployees: (state, action: {type: string, payload: string}) => {
+      state.employees[action.payload] = [];
+    }
   },
   extraReducers: (builder => {
     builder
@@ -84,4 +87,5 @@ export const {
   toggleActiveEmployee,
   toggleAllActiveEmployees,
   addEmployee,
+  addCompanyInEmployees,
 } = actions;

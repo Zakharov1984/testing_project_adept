@@ -3,6 +3,7 @@ import { MainButton } from "../../UI/MainButton/MainButton";
 import { MainSeparator } from "../../UI/MainSeparator/MainSeparator";
 import { useAppDispatch } from "../../hooks/hook";
 import { addCompany, deleteCompanies } from "../CompaniesList/companiesSlice";
+import { addCompanyInEmployees } from "../EmployeesList/employeesSlice";
 import type { ICompanyForActive } from "../../types/companiesTypes";
 
 import { useState } from "react";
@@ -34,6 +35,7 @@ export const CompaniesToolsWork = () => {
     }
     setInputsValue({name: '', address: ''});
     dispatch(addCompany(newCompany));
+    dispatch(addCompanyInEmployees(inputsValue.name));
   }
 
   const handleDeleteCompanies = () => {

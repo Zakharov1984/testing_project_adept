@@ -35,7 +35,6 @@ export default class Service {
 
   public async getAllEmployees() {
     const res: IEmployees = await this.getData(`${this.apiBase}/employees`);
-    console.log(res);
     return this.transformEmployees(res);
   }
 
