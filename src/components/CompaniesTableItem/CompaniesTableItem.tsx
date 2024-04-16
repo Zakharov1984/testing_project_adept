@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react"
 import { ICompanyForActive } from "../../types/companiesTypes"
-import { useAppDispatch } from "../../hooks/hook";
+import { useAppDispatch, useAppSelector } from "../../hooks/hook";
 
 import classNames from 'classnames';
 
@@ -19,6 +19,9 @@ export const CompaniesTableItem: React.FC<ICompaniesTableItem> = ({
   handleChangeCheckbox,
 }) => {
   const dispatch = useAppDispatch();
+  const {employees} = useAppSelector(state => state.employees);
+
+  const counter = employees?.[name]?.length ?? 0;
 
   const [isEditableCompanyName, setIsEditableCompanyName] = useState<boolean>(false);
   const [isEditableAddress, setIsEditableAddress] = useState<boolean>(false);
@@ -71,7 +74,7 @@ export const CompaniesTableItem: React.FC<ICompaniesTableItem> = ({
         />}
       </td>
 
-      <td>{employeeCounter}</td>
+      <td>{counter}</td>
 
       <td onDoubleClick={() => {
         setIsEditableAddress(true);
