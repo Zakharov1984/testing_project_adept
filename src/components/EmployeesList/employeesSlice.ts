@@ -28,6 +28,13 @@ interface IToggleAllActiveEmployeesPayload {
   isAllActiveEmployees: boolean,
 }
 
+interface IEditField {
+  companyName: string;
+  field: string; 
+  value: string; 
+  id: string;
+}
+
 export const fetchEmployees = createAsyncThunk(
   'employees/fetchEmployees',
   async () => {
@@ -68,7 +75,16 @@ const employeesSlice = createSlice({
     },
     addCompanyInEmployees: (state, action: {type: string, payload: string}) => {
       state.employees[action.payload] = [];
-    }
+    },
+    editField: (state, action: {type: string, payload: IEditField}) => {
+      state.employees[action.payload.companyName].forEach(employee => {
+        if (action.payload.id === employee.id) {
+          // использовал костыль, так как не смог разобраться в этом месте с типами.
+          // @ts-ignore
+          employee[action.payload.field] = action.payload.value;
+        }
+      })
+    },
   },
   extraReducers: (builder => {
     builder
@@ -94,4 +110,5 @@ export const {
   addEmployee,
   addCompanyInEmployees,
   deleteEmployees,
+  editField,
 } = actions;

@@ -6,11 +6,11 @@ import classNames from 'classnames';
 
 import { editField } from "../CompaniesList/companiesSlice";
 
-interface CompaniesTableItem extends ICompanyForActive {
+interface ICompaniesTableItem extends ICompanyForActive {
   handleChangeCheckbox: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const CompaniesTableItem: React.FC<CompaniesTableItem> = ({
+export const CompaniesTableItem: React.FC<ICompaniesTableItem> = ({
   id, 
   name, 
   address, 
