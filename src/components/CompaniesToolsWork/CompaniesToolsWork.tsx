@@ -41,9 +41,9 @@ export const CompaniesToolsWork = () => {
   }
 
   return (
-      <div className={st.tools}>
-        <h2 className={st.tools__title}>Инструменты для работы с таблицей 'Компании'</h2>
-        <section className={st.tools__add}>
+      <div className={st.toolsCompanies}>
+        <h2 className={st.toolsCompanies__title}>Инструменты для работы с таблицей 'Компании'</h2>
+        <section className={st.toolsCompanies__add}>
           <MainInput
             type="text"
             name="name"
