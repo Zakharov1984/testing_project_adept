@@ -73,6 +73,7 @@ const companiesSlice = createSlice({
     },
     deleteCompanies: state => {
       state.companies = state.companies.filter(company => !company.isActive);
+      state.activeCompanies = [];
     },
   },
   extraReducers: (builder => {
